@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meradji Abderrahmane | Profile Card</title>
+    <link rel="shortcut icon" href="../profile_card/images/logo1.png" type="image/x-icon">
+    <meta name="description"
+        content="Innovator | Problem Solver | Web Developer - Abderrahmane Meradji's professional profile">
+    <meta name="theme-color" content="#009FAF">
+    <meta property="og:title" content="Meradji Abderrahmane | Profile Card">
+    <meta property="og:description"
+        content="Innovator | Problem Solver | Web Developer - Abderrahmane Meradji's professional profile">
+    <meta property="og:type" content="website">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="../profile_card/style.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <main>
+        <div class="card" id="profile-card">
+            <div class="image-container">
+                <span class="overlay"></span>
+                <div class="images">
+                    <img src="../profile_card/images/photo_profile.jpg" class="image" alt="Abderrahmane Meradji profile photo">
+                </div>
+            </div>
+
+            <div class="card-content">
+                <div class="names">
+                    <h1 class="name">Abderrahmane Meradji</h1>
+                    <p class="nickname">Dahman</p>
+                    <p class="skills">Innovator | Problem Solver | Web Developer</p>
+                </div>
+
+                <div class="description">
+                    <p>A passionate individual with a love for technology, creativity, and continuous learning. I thrive
+                        on solving complex problems and turning ideas into reality. Whether it's coding, designing, or
+                        collaborating with others, I bring dedication and a fresh perspective to every project. Let's
+                        connect and create something amazing together!</p>
+                </div>
+
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=61550794883247" aria-label="Facebook Profile"
+                        class="social-icon facebook" data-tooltip="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/abderrahmane_mrj/" aria-label="Instagram Profile"
+                        class="social-icon instagram" data-tooltip="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://github.com/Dahman-mrj" aria-label="GitHub Profile" class="social-icon github"
+                        data-tooltip="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" aria-label="LinkedIn Profile" class="social-icon linkedin" data-tooltip="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://discord.com/users/1109240846991245393" aria-label="Discord Profile"
+                        class="social-icon discord" data-tooltip="Discord">
+                        <i class="fab fa-discord"></i>
+                    </a>
+                    <a href="https://wa.me/qr/2CNEWNLRACD5N1" aria-label="WhatsApp Contact" class="social-icon whatsapp" data-tooltip="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="button" id="view-more-btn">
+                        <span>View More</span>
+                    </button>
+                    <button class="button contact-btn" id="contact-btn">
+                        <span>Contact Me</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="expanded-content" id="expanded-content">
+                <h2>Skills & Expertise</h2>
+                <div class="skills-container">
+                    <div class="skill-item">
+                        <span class="skill-name" data-level="90%">HTML/CSS</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name" data-level="85%">JavaScript</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name" data-level="80%">Web Design</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name" data-level="95%">Problem Solving</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 95%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="education-section">
+                    <h3>Education</h3>
+                    <div class="education-item">
+                        <div class="education-year">2020 - 2023</div>
+                        <div class="education-degree">Bachelor's Degree in Computer Science</div>
+                        <div class="education-school">University of Technology</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Preload animation will be added by JavaScript -->
+            <div class="card-loader">
+                <div class="loader-spinner"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Add structured data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Person",
+        "name": "Abderrahmane Meradji",
+        "alternateName": "Dahman",
+        "description": "Innovator | Problem Solver | Web Developer",
+        "image": "../images/photo_profile.jpg",
+        "sameAs": [
+            "https://www.facebook.com/profile.php?id=61550794883247",
+            "https://www.instagram.com/abderrahmane_mrj/",
+            "https://github.com/MrBididi",
+            "https://discord.com/users/1109240846991245393"
+        ]
+    }
+    </script>
+
+    <!-- JavaScript -->
+    <script src="../profile_card/script.js"></script>
+</body>
+
+</html>
