@@ -43,8 +43,11 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 500 + (index * 100));
         });
 
-        // Add CSS variables for theme customization
-        document.documentElement.style.setProperty('--profile-hue', Math.floor(Math.random() * 360));
+        // Restore the medium blue color scheme
+        document.documentElement.style.setProperty('--primary-color', '#2C7DA0'); // Medium blue
+        document.documentElement.style.setProperty('--primary-dark', '#1A5E7A'); // Darker blue
+        document.documentElement.style.setProperty('--primary-light', '#61A5C2'); // Lighter blue
+        document.documentElement.style.setProperty('--accent-color', '#E67E22'); // Warmer orange accent
 
         // Initialize skill bars with zero width (for animation later)
         document.querySelectorAll('.skill-level').forEach(skill => {
@@ -75,11 +78,11 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
 
-        // Add theme toggle functionality
-        createThemeToggle();
+        // Remove theme toggle functionality
+        // createThemeToggle();
 
-        // Add download resume button
-        createDownloadButton();
+        // Remove download resume button
+        // createDownloadButton();
     }
 
     /**
@@ -489,151 +492,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     /**
-     * Creates a theme toggle button
-     */
-    function createThemeToggle() {
-        // Create the theme toggle button
-        const themeToggle = document.createElement('button');
-        themeToggle.className = 'theme-toggle';
-        themeToggle.innerHTML = '<i class="fas fa-palette"></i>';
-        themeToggle.setAttribute('aria-label', 'Change theme colors');
-
-        // Add it to the card
-        profileCard.appendChild(themeToggle);
-
-        // Add styles for the theme toggle
-        const themeToggleStyle = document.createElement('style');
-        themeToggleStyle.textContent = `
-            .theme-toggle {
-                position: absolute;
-                top: 15px;
-                right: 15px;
-                width: 40px;
-                height: 40px;
-                border-radius: 50%;
-                background-color: var(--text-light);
-                border: none;
-                color: var(--primary-color);
-                font-size: 18px;
-                cursor: pointer;
-                z-index: 10;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-                transition: all 0.3s ease;
-            }
-            
-            .theme-toggle:hover {
-                transform: rotate(30deg);
-                background-color: var(--primary-dark);
-                color: var(--text-light);
-            }
-            
-            .theme-options {
-                position: absolute;
-                top: 60px;
-                right: 15px;
-                background-color: white;
-                border-radius: 10px;
-                padding: 10px;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-                display: flex;
-                flex-wrap: wrap;
-                gap: 5px;
-                width: 120px;
-                z-index: 100;
-                transform: scale(0);
-                transform-origin: top right;
-                transition: transform 0.3s ease;
-            }
-            
-            .theme-options.active {
-                transform: scale(1);
-            }
-            
-            .color-option {
-                width: 25px;
-                height: 25px;
-                border-radius: 50%;
-                cursor: pointer;
-                border: 2px solid white;
-                transition: transform 0.2s ease;
-            }
-            
-            .color-option:hover {
-                transform: scale(1.2);
-            }
-        `;
-
-        document.head.appendChild(themeToggleStyle);
-
-        // Add click event to toggle theme options
-        themeToggle.addEventListener('click', () => {
-            // Remove existing theme options if they exist
-            const existingOptions = document.querySelector('.theme-options');
-            if (existingOptions) {
-                existingOptions.remove();
-                return;
-            }
-
-            // Create theme options
-            const themeOptions = document.createElement('div');
-            themeOptions.className = 'theme-options';
-
-            // Define color themes
-            const themes = [
-                { primary: '#009FAF', dark: '#007A85', accent: '#FF6B6B' }, // Default
-                { primary: '#6200EA', dark: '#4A00B0', accent: '#03DAC6' }, // Purple
-                { primary: '#C2185B', dark: '#8C0D3E', accent: '#00BCD4' }, // Pink
-                { primary: '#00796B', dark: '#004D40', accent: '#FFC107' }, // Teal
-                { primary: '#E65100', dark: '#BF360C', accent: '#2196F3' }, // Orange
-                { primary: '#2E7D32', dark: '#1B5E20', accent: '#FF4081' }  // Green
-            ];
-
-            // Create color options
-            themes.forEach(theme => {
-                const colorOption = document.createElement('div');
-                colorOption.className = 'color-option';
-                colorOption.style.backgroundColor = theme.primary;
-
-                colorOption.addEventListener('click', () => {
-                    // Apply the theme
-                    document.documentElement.style.setProperty('--primary-color', theme.primary);
-                    document.documentElement.style.setProperty('--primary-dark', theme.dark);
-                    document.documentElement.style.setProperty('--accent-color', theme.accent);
-
-                    // Close the options
-                    themeOptions.remove();
-                });
-
-                themeOptions.appendChild(colorOption);
-            });
-
-            // Add to the card
-            profileCard.appendChild(themeOptions);
-
-            // Animate appearance
-            setTimeout(() => {
-                themeOptions.classList.add('active');
-            }, 10);
-
-            // Close when clicking outside
-            document.addEventListener('click', function closeThemeOptions(e) {
-                if (!themeOptions.contains(e.target) && e.target !== themeToggle) {
-                    themeOptions.classList.remove('active');
-                    setTimeout(() => {
-                        if (themeOptions.parentNode) {
-                            themeOptions.parentNode.removeChild(themeOptions);
-                        }
-                    }, 300);
-                    document.removeEventListener('click', closeThemeOptions);
-                }
-            });
-        });
-    }
-
-    /**
      * Creates a download resume button
      */
     function createDownloadButton() {
@@ -683,7 +541,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-// Add CSS animations for page load
+// Update the CSS animations for page load
 document.addEventListener('DOMContentLoaded', function () {
     const style = document.createElement('style');
     style.textContent = `
@@ -713,14 +571,6 @@ document.addEventListener('DOMContentLoaded', function () {
             0% { transform: scale(0.8); }
             50% { transform: scale(1.1); }
             100% { transform: scale(1); }
-        }
-        
-        :root {
-            --profile-hue: 190;
-            --primary-color: hsl(var(--profile-hue), 100%, 35%);
-            --primary-dark: hsl(var(--profile-hue), 100%, 25%);
-            --primary-light: hsl(var(--profile-hue), 70%, 55%);
-            --accent-color: hsl(calc(var(--profile-hue) + 180), 100%, 70%);
         }
     `;
 
